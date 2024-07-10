@@ -1,0 +1,16 @@
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loaderAnimation {
+    width: 14vw;
+    height: 14vw;
+}
+
+.loaderTitle {
+    font-size: 6vw;
+    font-weight: 100;
+    color: #1a1a1a;
+}
