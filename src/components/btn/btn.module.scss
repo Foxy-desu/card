@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.button {
+    box-sizing: content-box;
+    padding: 2vw 8vw;
+    font-size: 4vw;
+    line-height: 1.5;
+    font-weight: 300;
+    color: $clr-text-accent;
+    background-color: $clr-bg-secondary;
+    cursor: pointer;
+}
