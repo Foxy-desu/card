@@ -1,0 +1,30 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.cardScreen {
+    @include centrate($main:start, $cross: stretch, $direction: column);
+    width: 100vw;
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    background-color: $clr-bg-secondary;
+}
+
+.header {
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   width: 100%;
+   text-align: center;
+   background-color: $clr-bg-primary-lt; 
+}
+
+.headerContent {
+    margin: 4vw 0;
+    font-size: 6vw;
+    font-weight: 300;
+    color: $clr-text-accent;
+}
+
+.main {
+    padding: 4vw;
+}
