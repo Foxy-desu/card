@@ -2,6 +2,10 @@ import 'immer';
 import { createSlice, PayloadAction, createAsyncThunk, SerializedError, Dispatch } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 
+const LONG_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesLong';
+const ERR_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesError';
+const PLAIN_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompanies';
+const IDEAL_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesIdeal';
 export interface ICard {
     company: {
         companyId: string,
@@ -54,7 +58,7 @@ export const fetchCards: any = createAsyncThunk (
                     limit
                 }),
             };
-            const response = await fetch('http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesLong', options);
+            const response = await fetch(PLAIN_FETCH, options);
             const data = await response.json();
             if (response.status === 200) {
                 return data.companies;
