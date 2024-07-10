@@ -1,0 +1,11 @@
+@import './variables';
+
+:export {
+    bgPrimary: $clr-bg-primary-lt;
+    bgSecondary: $clr-bg-secondary;
+    bgCaution: $clr-bg-caution;
+    bgInform: $clr-bg-inform;
+    textPrimary: $clr-text-primary;
+    textSecondary: $clr-text-secondary;
+    textAccent: $clr-text-accent;
+};
