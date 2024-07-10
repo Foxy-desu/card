@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.card {
+    padding: 5vw 4.5vw;
+    border-radius: 0.75em;
+    background-color: $clr-bg-primary-lt;
+    font-size: 10vw;
+}
+
+.cardHeader {
+    @include centrate($main: space-between, $cross: normal);
+    box-sizing: content-box;
+    padding-bottom: 2vw;
+    border-bottom: 1px solid $clr-bg-secondary;
+    margin-bottom: 6vw;
+}
+
+.cardIcon {
+    width: 11vw;
+}
+
+.cardInfo {
+   margin-bottom: 2vw;
+}
+
+.cardScore {
+    margin-bottom: 4vw;
+}
+
+.cardLoyalty {
+    @include centrate($main: flex-start, $cross: start);
+} 
+
+.loyaltyWrap {
+    margin-right: 14vw;
+}
+
+.cardFooter {
+    @include centrate($main: flex-end, $cross: center);
+    box-sizing: content-box;
+    padding: 2vw 0 0;
+    border-top: 1px solid $clr-bg-secondary;
+}
+
+.btnWrap {
+    display: flex;
+
+    &_sml {
+        width: 6vw;
+        height: 6vw;
+        margin-right: 15vw;
+    }
+}
