@@ -2,8 +2,8 @@ import { ICards} from '../../store/cards_slice';
 import Card from '../card/card';
 import cl from './cards_list.module.scss';
 
-
-const CardList = ({cards}: {cards: ICards['cards']}) => {
+//TODO: get rid of any type
+const CardList = ({cards, openPopUp}: {cards: ICards['cards'], openPopUp: any}) => {
     function renderCards(cards: ICards['cards']){
         if (cards.length > 0) {
             return cards.map(card => {
@@ -15,8 +15,8 @@ const CardList = ({cards}: {cards: ICards['cards']}) => {
                     appDashboard: card.mobileAppDashboard,
                 }
                 return (
-                    <li key={card.company.companyId}>
-                        <Card {...cardProps}/>
+                    <li key={card.company.companyId} className={cl.cardsItem}>
+                        <Card {...cardProps} openPopUp={openPopUp}/>
                     </li>
                 )
             })

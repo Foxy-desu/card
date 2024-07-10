@@ -5,15 +5,18 @@ import Logo from '../card_logo/card_logo';
 import InfoBlock from '../info_block/info_block';
 import CardTitle from '../card_title/card_title';
 import { ICard } from '../../store/cards_slice';
+import { IUsePopupProps } from '../../utils/hooks/usePopUp';
 
 interface ICardProps {
     companyId: string;
     loyaltyLevel: string;
     cashback: number;
     credits: number;
-    appDashboard: ICard['mobileAppDashboard']
+    appDashboard: ICard['mobileAppDashboard'];
+    //TODO: get rid of any
+    openPopUp: (cardData: IUsePopupProps['cardData']) => void;
 }
-const Card =(props: ICardProps)=> {
+const Card =({openPopUp, ...props}: ICardProps)=> {
     const dynamicColor = props.appDashboard.backgroundColor;
     const inlineStyle = dynamicColor? {backgroundColor: dynamicColor}: {};
 
@@ -69,18 +72,21 @@ const Card =(props: ICardProps)=> {
                 <div className={`${cl.btnWrap} ${cl.btnWrap_sml}`}>
                     <IconButton
                         iconBtnType='eye'
-                        dynamicColor={props.appDashboard.textColor}/>
+                        dynamicColor={props.appDashboard.textColor}
+                        onClick={()=> openPopUp({btnClicked: 'Показать', companyId: props.companyId})}/>
                 </div>
                 <div className={`${cl.btnWrap} ${cl.btnWrap_sml}`}>
                     <IconButton
                         iconBtnType='trash'
-                        dynamicColor={props.appDashboard.mainColor}/>
+                        dynamicColor={props.appDashboard.mainColor}
+                        onClick={()=> openPopUp({btnClicked: 'Удалить', companyId: props.companyId})}/>
                 </div>
                 <div className={cl.btnWrap}>
                     <Btn dynamicColor={{
                         text: props.appDashboard.textColor,
                         bg: props.appDashboard.accentColor
                         }}
+                        onClick={()=> openPopUp({btnClicked: 'Подробнее', companyId: props.companyId})}
                     />
                 </div>
             </footer>

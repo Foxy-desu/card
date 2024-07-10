@@ -2,15 +2,34 @@ import cl from './cards_screen.module.scss';
 import CardList from '../../components/cards_list/cards_list';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/hooks';
 import { fetchCards, selectCards } from '../../store/cards_slice';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useIntersect } from '../../utils/hooks/useIntersect';
+import { Loader } from '../../components/loader/loader';
+import PopUp from '../../components/pop_up/pop_up';
+import { usePopUp } from '../../utils/hooks/usePopUp';
 
 const CardsScreen = () => {
     const {cards, isLoading, error} = useAppSelector(selectCards);
     const dispatch = useAppDispatch();
+    const {ref, currentPage} = useIntersect(isLoading);
+    const {popupStats, closePopUp, openOnError, openOnCard} = usePopUp();
+   
 
     useEffect(() => {
-        dispatch(fetchCards({limit: 10, offset: 0}));
+        dispatch(fetchCards({limit: 10, offset: currentPage}));
     }, []);
+
+    useEffect(() => {
+        if (currentPage > 0) {
+            dispatch(fetchCards({limit: 10, offset: currentPage}));
+        }
+    }, [currentPage]);
+    
+    useEffect(()=> {
+        if(error?.message) {
+            openOnError(error.message)
+        }
+    }, [error])
     
     return (
         <div className={cl.cardScreen}>
@@ -19,19 +38,18 @@ const CardsScreen = () => {
             </header>
             <main className={cl.main}>
                 <div className={cl.cards}>
-                    {   isLoading
-                        ? <p style={{color: 'black'}}>...Загрузка</p>
-                        : error
-                        ? <p style={{color: 'black'}}>{error.message}</p>
-                        : cards?.length > 0
-                        ? <CardList cards={cards}/>
-                        : <p style={{color: 'black'}}>Карточки не найдены</p>}
-                    {/* loading cards */}
-                    {/* to update -swipe up */}
+                    { cards?.length > 0 
+                        ? <CardList cards={cards} openPopUp={openOnCard}/>
+                        : isLoading ? '' : <p style={{color: 'black'}}>Карточки не найдены</p>
+                    }
+                    {isLoading && <Loader/>}
                 </div>
-                <div className={cl.observer}>
-
+                <div className={cl.observer} style={{height: '2vw'}} ref={ref}>
                 </div>
+                {popupStats.isOpen
+                    && <PopUp pType={popupStats.pType} error={popupStats.error} cardData={popupStats.cardData} onClick={closePopUp} />
+                }
+                
             </main>
         </div>
     )
