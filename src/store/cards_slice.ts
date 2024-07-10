@@ -1,5 +1,5 @@
 import 'immer';
-import { createSlice, PayloadAction, createAsyncThunk, SerializedError, Dispatch } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk, SerializedError} from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 
 const LONG_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesLong';
