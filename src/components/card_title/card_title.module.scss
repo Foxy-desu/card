@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.cardTitle {
+    // @include centrate($main: start, $cross: center);
+    font-size: 7vw;
+    font-weight: 300;
+    color: $clr-text-primary;
+}
