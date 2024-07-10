@@ -93,17 +93,15 @@ export const cardSlice = createSlice({
            .addCase(fetchCards.pending, (state) => {
                 state.isLoading = true;
                 state.error = null;
-                state.cards = state.cards;
             })
            .addCase(fetchCards.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.cards = action.payload;
+                state.cards = [...state.cards, ...action.payload];
                 state.error = null;
             })
            .addCase(fetchCards.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
-                state.cards = state.cards;
             });
     }
 });
