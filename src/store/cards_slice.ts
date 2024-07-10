@@ -41,7 +41,7 @@ const initialState: ICards = {
     isLoading: false,
     error: null,
 };
-// разобраться с типом any
+// TODO: разобраться с типом any
 export const fetchCards: any = createAsyncThunk (
     'cards/fetchCards',
     async (queryOptions: any, {rejectWithValue}) => {
