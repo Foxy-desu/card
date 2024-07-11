@@ -33,6 +33,7 @@
     margin-right: 2vw;
     color: $clr-text-primary;
     &_narrow {
+        text-transform: capitalize;
         margin-right: 0;
         order: 2;
         font-size: 5vw;

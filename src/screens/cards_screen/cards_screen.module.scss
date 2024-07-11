@@ -3,7 +3,6 @@
 
 .cardScreen {
     @include centrate($main:start, $cross: stretch, $direction: column);
-    width: 100vw;
     min-height: 100dvh;
     font-family: Arial, sans-serif;
     background-color: $clr-bg-secondary;
