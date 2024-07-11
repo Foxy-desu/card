@@ -1,22 +1,31 @@
 import cl from './info_block.module.scss';
-import myColors from '../../styles/colors.module.scss';
 
 interface IInfBlock {
     dynamicColor?: {title?: string, data?: string};
     data: string | number;
     title: string;
-    type?: 'spacious' | 'narrow'
+    type?: 'spacious' | 'narrow';
 }
 
 const InfoBlock = ({dynamicColor, data, title, type='narrow'}: IInfBlock) => {
     
-    const defaultTitleColor = myColors.textSecondary;
-    const defaultDataColor = myColors.textPrimary;
-  
+    const titleInlineStyle = dynamicColor && Object.keys(dynamicColor).length > 0
+        ? { color: dynamicColor.title}
+        : {};
+    const dataInlineStyle = dynamicColor && Object.keys(dynamicColor).length > 0
+        ? { color: dynamicColor.data}
+        : {};
+    
+    function getClass(type: IInfBlock['type']){
+        return type === 'narrow'
+            ? {block: cl.infoBlock_narrow, title: cl.title_narrow, data: cl.data_narrow}
+            : {block: '', title: '', data: ''};
+    }
+
     return (
-        <section className={`${cl.infoBlock} ${type==='narrow' ? cl.infoBlock_narrow : ''}`}>
-            <h3 className={`${cl.title} ${type==='narrow' ? cl.title_narrow : ''}`} style={{color: dynamicColor?.title || defaultTitleColor}}>{title}</h3>
-            <p className={`${cl.data} ${type==='narrow' ? cl.data_narrow : ''}`} style={{color: dynamicColor?.data || defaultDataColor}}>{data}</p>
+        <section className={`${cl.infoBlock} ${getClass(type).block}`}>
+            <h3 className={`${cl.title} ${getClass(type).title}`} style={titleInlineStyle}>{title}</h3>
+            <p className={`${cl.data} ${getClass(type).data}`} style={dataInlineStyle}>{data}</p>
         </section>
     )
 };
