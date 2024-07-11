@@ -9,7 +9,7 @@ interface IPopUpProps {
         btnClicked?: string | null,
         companyId?: string | null,
     }
-    ref?: HTMLDivElement | null;
+    referer?: HTMLDivElement | null;
     onClick: () => void
 };
 interface IErrorContentProps {
@@ -22,11 +22,11 @@ const PopUp = ({onClick, ...props}: IPopUpProps) => {
     useEffect(()=> {
         const scrollWidth =  window.innerWidth - document.documentElement.clientWidth;
         document.body.style.overflowY = 'hidden';
-        if (props.ref) props.ref.style.paddingRight = scrollWidth + 'px';
+        if (props.referer) props.referer.style.paddingRight = scrollWidth + 'px';
         
         return () => {
             document.body.style.overflowY = 'visible';
-            if (props.ref) props.ref.style.paddingRight = 0 + 'px';
+            if (props.referer) props.referer.style.paddingRight = 0 + 'px';
         };
     }, [])
 

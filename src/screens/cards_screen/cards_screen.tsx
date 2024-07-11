@@ -30,10 +30,6 @@ const CardsScreen = () => {
             openOnError(error.message)
         }
     }, [error])
-
-    useEffect(()=> {
-        return ()=> {cardScreenRef.current = null}
-    }, [])
     
     return (
             <div className={cl.cardScreen} id='cardScreen' ref={cardScreenRef}>
@@ -51,7 +47,7 @@ const CardsScreen = () => {
                     <div className={cl.observer} style={{height: '2vw'}} ref={ref}>
                     </div>
                     {popupStats.isOpen
-                        && <PopUp pType={popupStats.pType} error={popupStats.error} cardData={popupStats.cardData} onClick={closePopUp} ref={cardScreenRef.current}/>
+                        && <PopUp pType={popupStats.pType} error={popupStats.error} cardData={popupStats.cardData} onClick={closePopUp} referer={cardScreenRef.current}/>
                     }
                     
                 </main>
