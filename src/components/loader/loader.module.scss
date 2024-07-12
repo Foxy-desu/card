@@ -1,39 +1,39 @@
 @import '../../styles/variables';
 
 .loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loaderAnimation {
-    width: 14vw;
-    height: 14vw;
+  width: 14vw;
+  height: 14vw;
 }
 
 .loaderTitle {
-    font-size: 6vw;
-    font-weight: 100;
-    color: #1a1a1a;
+  font-size: 6vw;
+  font-weight: 100;
+  color: #1a1a1a;
 }
 
 .refresh {
-    position: absolute;
-    bottom: -9vw;
-    left: 50%;
-    transform: translateX(-50%);
-    box-sizing: content-box;
-    width: 6vw;
-    height: 6vw;
-    padding: 0.5vw;
-    background-color: $clr-bg-primary-lt;
-    border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 6px -1px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 6px -1px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
+  position: absolute;
+  bottom: -9vw;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: content-box;
+  width: 6vw;
+  height: 6vw;
+  padding: 0.5vw;
+  background-color: $clr-bg-primary-lt;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 6px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 6px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
 }
 
 .refreshAnimation {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

@@ -2,14 +2,14 @@
 @import '../../styles/mixins';
 
 .splashScreen {
-    @include centrate($main: center, $cross: center);
-    width: 100vw;
-    height: 100dvh;
-    background: $clr-bg-primary-lt;
+  @include centrate($main: center, $cross: center);
+  width: 100vw;
+  height: 100dvh;
+  background: $clr-bg-primary-lt;
 }
 
 .splashIcon {
-    width: 50vw;
-    height: auto;
-    max-width: 300px;
+  width: 50vw;
+  height: auto;
+  max-width: 300px;
 }

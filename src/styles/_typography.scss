@@ -1,18 +1,19 @@
 @font-face {
-    font-family: "SegoeUIBold";
-    font-style: normal;
-    font-weight: 400;
-    src: url("./fonts/SegoeUIBold/SegoeUIBold.woff") format('woff'),
-    url("./fonts/SegoeUIBold/SegoeUIBold.eot"),
-    url("./fonts/SegoeUIBold/SegoeUIBold.ttf") format("truetype");
-};
-
+  font-family: 'SegoeUIBold';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('./fonts/SegoeUIBold/SegoeUIBold.woff') format('woff'),
+    url('./fonts/SegoeUIBold/SegoeUIBold.eot'),
+    url('./fonts/SegoeUIBold/SegoeUIBold.ttf') format('truetype');
+}
 
 @font-face {
-    font-family: "SegoeUIRegular";
-    font-style: normal;
-    font-weight: 400;
-    src: url('./fonts/SegoeUIRegular/SegoeUIRegular.woff') format('woff'),
+  font-family: 'SegoeUIRegular';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('./fonts/SegoeUIRegular/SegoeUIRegular.woff') format('woff'),
     url('./fonts/SegoeUIRegular/SegoeUIRegular.eot'),
-    url('./fonts/SegoeUIRegular/SegoeUIRegular.ttf') format('truetype');  
-};
+    url('./fonts/SegoeUIRegular/SegoeUIRegular.ttf') format('truetype');
+}

@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-export const useSplash =()=> {
+export const useSplash = () => {
   const [isInited, setIsInited] = useState(false);
 
-  function hideSplash(){
+  function hideSplash() {
     setIsInited(true);
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     const timerId = setTimeout(hideSplash, 3000);
     return () => clearTimeout(timerId);
   }, []);

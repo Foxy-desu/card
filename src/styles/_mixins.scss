@@ -1,6 +1,6 @@
-@mixin centrate($direction: row, $main: center, $cross: center){
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $main;
-    align-items: $cross;
+@mixin centrate($direction: row, $main: center, $cross: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $main;
+  align-items: $cross;
 }
