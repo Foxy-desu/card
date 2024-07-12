@@ -2,19 +2,17 @@ import { useState } from "react";
 
 export interface IUsePopupProps {
     error: string | null;
-    cardData: {} | {
+    cardData: object | {
         btnClicked: string;
         companyId: string;
     };
-};
-
+}
 interface IUsePopupStats {
     isOpen: boolean,
     pType: string,
     error: IUsePopupProps['error']
     cardData: IUsePopupProps['cardData'],
 }
-
 export const usePopUp = () => {
    const [popupStats, setIPopupStats] = useState<IUsePopupStats>({
     isOpen: false,

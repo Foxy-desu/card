@@ -12,7 +12,7 @@ export const Loader = () => {
                 Подгрузка компаний
             </h2>
         </section>
-    )
+    );
 };
 
 export const Refresh = () => {
@@ -22,5 +22,5 @@ export const Refresh = () => {
                 <img className={cl.refreshAnimation} src={refreshAnimation} alt="Анимация обновления страницы" />
             </div>
         </div>
-    )
+    );
 };

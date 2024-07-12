@@ -3,11 +3,11 @@ import cl from './btn.module.scss';
 
 interface IBtn extends ComponentPropsWithoutRef<'button'> {
     dynamicColor?: IBtnColors;
-};
+}
 interface IBtnColors {
     text?: string;
     bg?: string;
-};
+}
 
 const Btn = ({dynamicColor, ...rest}:IBtn)=> {
     const inlineStyle = dynamicColor ? { color: dynamicColor.text, backgroundColor: dynamicColor.bg } : {};

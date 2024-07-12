@@ -3,7 +3,6 @@
 @import '../../styles/typography';
 
 .popup {
-    // @include centrate($direction: column);
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +26,6 @@
     text-align: center;
     box-sizing: content-box;
     padding: 5vw;
-    // transform: translateY(-7vw);
     background-color: $clr-bg-primary-lt;
     font-size: 4vw;
     color: $clr-text-primary;

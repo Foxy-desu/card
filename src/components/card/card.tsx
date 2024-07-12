@@ -14,7 +14,7 @@ interface ICardProps {
     credits: number;
     appDashboard: ICard['mobileAppDashboard'];
     openPopUp: (cardData: IUsePopupProps['cardData']) => void;
-};
+}
 const Card =({openPopUp, ...props}: ICardProps)=> {
     const dynamicColor = props.appDashboard.backgroundColor;
     const inlineStyle = dynamicColor? {backgroundColor: dynamicColor}: {};

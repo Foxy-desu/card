@@ -19,14 +19,14 @@ const CardList = ({cards, openPopUp}: {cards: ICards['cards'], openPopUp: any}) 
                         <Card {...cardProps} openPopUp={openPopUp}/>
                     </li>
                 )
-            })
+            });
         }
     }
     return (
         <ul className={cl.cardsList}>
             {renderCards(cards)}
         </ul>
-    )
+    );
 };
 
 export default CardList;

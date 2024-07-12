@@ -2,10 +2,13 @@ import 'immer';
 import { createSlice, PayloadAction, createAsyncThunk, SerializedError} from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 
-const LONG_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesLong';
-const ERR_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesError';
-const PLAIN_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompanies';
-const IDEAL_FETCH = 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesIdeal';
+const FETCH_STYLE = {
+    LONG: 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesLong',
+    PLAIN: 'http://devapp.bonusmoney.pro/mobileapp/getAllCompanies',
+    IDEAL: 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesIdeal',
+    ERR: 'http://devapp.bonusmoney.pro/mobileapp/getAllCompaniesError',
+};
+
 export interface ICard {
     company: {
         companyId: string,
@@ -30,12 +33,12 @@ export interface ICard {
         highlightTextColor: string,
         accentColor: string,
     },
-};
+}
 export interface ICards {
     cards: ICard[] | [],
     isLoading: boolean,
     error: SerializedError | null,
-};
+}
 const initialState: ICards = {
     cards: [],
     isLoading: false,
@@ -58,20 +61,20 @@ export const fetchCards: any = createAsyncThunk (
                     limit
                 }),
             };
-            const response = await fetch(PLAIN_FETCH, options);
+            const response = await fetch(FETCH_STYLE.PLAIN, options);
             const data = await response.json();
             if (response.status === 200) {
                 return data.companies;
             } else {
                 if(response.status === 400) {
                     throw new Error(data.message);
-                };
+                }
                 if(response.status === 401) {
                     throw new Error('Ошибка авторизации');
-                };
+                }
                 if(response.status === 500) {
                     throw new Error('Все упало');
-                };
+                }
             }
         } catch(error:any) {
             return rejectWithValue({message: error.message});

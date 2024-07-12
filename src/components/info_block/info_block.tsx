@@ -27,7 +27,7 @@ const InfoBlock = ({dynamicColor, data, title, type='narrow'}: IInfBlock) => {
             <h3 className={`${cl.title} ${getClass(type).title}`} style={titleInlineStyle}>{title}</h3>
             <p className={`${cl.data} ${getClass(type).data}`} style={dataInlineStyle}>{data}</p>
         </section>
-    )
+    );
 };
 
 export default InfoBlock;

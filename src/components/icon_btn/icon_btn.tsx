@@ -6,7 +6,7 @@ import cl from './icon_btn.module.scss';
 interface IIconBtnProps extends ComponentPropsWithoutRef<'button'> {
     iconBtnType: 'eye'| 'trash';
     dynamicColor?: string;
-};
+}
 
 const IconButton = ({iconBtnType, dynamicColor,...props}:IIconBtnProps): JSX.Element => {
     const [btnType] = useState(()=> getImageSource(iconBtnType));
@@ -19,7 +19,7 @@ const IconButton = ({iconBtnType, dynamicColor,...props}:IIconBtnProps): JSX.Ele
             default:
                 return {style: {}, desc: ''};
         }
-    };
+    }
     return (
         <button className={cl.iconButton} type='button' {...props}>
             <span className={`${cl.icon} ${iconBtnType === 'trash' && cl.icon_delete}`} style={btnType.style}/>

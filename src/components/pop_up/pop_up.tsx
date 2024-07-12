@@ -11,10 +11,10 @@ interface IPopUpProps {
     }
     referer?: HTMLDivElement | null;
     closePopup: () => void;
-};
+}
 interface IErrorContentProps {
     error: IPopUpProps['error'],
-};
+}
 
 const PopUp = ({closePopup, ...props}: IPopUpProps) => {
     useEffect(()=> {
