@@ -10,15 +10,13 @@ interface IPopUpProps {
         companyId?: string | null,
     }
     referer?: HTMLDivElement | null;
-    onClick: () => void
+    closePopup: () => void;
 };
 interface IErrorContentProps {
     error: IPopUpProps['error'],
 };
 
-const PopUp = ({onClick, ...props}: IPopUpProps) => {
-
-
+const PopUp = ({closePopup, ...props}: IPopUpProps) => {
     useEffect(()=> {
         const scrollWidth =  window.innerWidth - document.documentElement.clientWidth;
         document.body.style.overflowY = 'hidden';
@@ -28,9 +26,7 @@ const PopUp = ({onClick, ...props}: IPopUpProps) => {
             document.body.style.overflowY = 'visible';
             if (props.referer) props.referer.style.paddingRight = 0 + 'px';
         };
-    }, [])
-
-
+    }, []);
 
     return (
         <div className={cl.popup}>
@@ -42,7 +38,7 @@ const PopUp = ({onClick, ...props}: IPopUpProps) => {
                 </div>
             </div>
                 <div className={cl.btnWrap}>
-                    <CloseBtn onClick={onClick}/>
+                    <CloseBtn onClick={()=>closePopup()}/>
                 </div>
         </div>
     )
