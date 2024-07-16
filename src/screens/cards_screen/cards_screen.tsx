@@ -8,6 +8,7 @@ import { Loader, Refresh } from '../../components/loader/loader';
 import { usePopUp } from '../../utils/hooks/usePopUp';
 import { useUpdate } from '../../utils/hooks/useUpdate';
 import cl from './cards_screen.module.scss';
+import CardsNotFound from '../../components/cards_not_found/cards_not_found';
 
 const CardsScreen = () => {
   const { cards, isLoading, error } = useAppSelector(selectCards);
@@ -53,7 +54,7 @@ const CardsScreen = () => {
           ) : isLoading ? (
             ''
           ) : (
-            <p style={{ color: 'black' }}>Карточки не найдены</p>
+            <CardsNotFound/>
           )}
           {isLoading && <Loader />}
         </div>
