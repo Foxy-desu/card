@@ -26,7 +26,7 @@ const CardsScreen = () => {
   }, []);
 
   useEffect(() => {
-    if (currentPage > 0 && shouldFetch) {
+    if (shouldFetch) {
       dispatch(fetchCards({ limit: 10, offset: currentPage })).then(() => {
         setShouldShowUpdate(false);
       });
